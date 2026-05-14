@@ -1,0 +1,118 @@
+import type { LatLng, City } from "../../types";
+export const nullIslandPoint: LatLng = { lat: 0, lng: 0 };
+export const roundedPacificOceanPoint: LatLng = { lat: -1, lng: 144.5 };
+export const roundedAtlanticOceanPoint: LatLng = { lat: 4, lng: 9.5 };
+export const roundedIndianOceanPoint: LatLng = { lat: 0, lng: 60 };
+export const roundedPointLyon: LatLng = { lat: 46, lng: 5 };
+export const cityLyon: City = {
+  id: "1250196189",
+  lat: 45.76,
+  lng: 4.84,
+  name: "Lyon",
+  nameAscii: "Lyon",
+  roundedLat: 46,
+  roundedLng: 5,
+};
+export const cityGroupIncludingLyon: City[] = [
+  cityLyon,
+  {
+    id: "1250002615",
+    lat: 45.7667,
+    lng: 4.8803,
+    name: "Villeurbanne",
+    nameAscii: "Villeurbanne",
+    roundedLat: 46,
+    roundedLng: 5,
+  },
+  {
+    id: "1250814472",
+    lat: 45.7768,
+    lng: 4.9186,
+    name: "Vaulx-en-Velin",
+    nameAscii: "Vaulx-en-Velin",
+    roundedLat: 46,
+    roundedLng: 5,
+  },
+  {
+    id: "1250073067",
+    lat: 45.7953,
+    lng: 4.8472,
+    name: "Caluire-et-Cuire",
+    nameAscii: "Caluire-et-Cuire",
+    roundedLat: 46,
+    roundedLng: 5,
+  },
+  {
+    id: "1250397174",
+    lat: 46.2056,
+    lng: 5.2289,
+    name: "Bourg-en-Bresse",
+    nameAscii: "Bourg-en-Bresse",
+    roundedLat: 46,
+    roundedLng: 5,
+  },
+  {
+    id: "1250340917",
+    lat: 45.7667,
+    lng: 5.0036,
+    name: "Meyzieu",
+    nameAscii: "Meyzieu",
+    roundedLat: 46,
+    roundedLng: 5,
+  },
+  {
+    id: "1250128916",
+    lat: 45.8214,
+    lng: 4.8983,
+    name: "Rillieux-la-Pape",
+    nameAscii: "Rillieux-la-Pape",
+    roundedLat: 46,
+    roundedLng: 5,
+  },
+  {
+    id: "1250944644",
+    lat: 45.7694,
+    lng: 4.9594,
+    name: "Décines-Charpieu",
+    nameAscii: "Decines-Charpieu",
+    roundedLat: 46,
+    roundedLng: 5,
+  },
+  {
+    id: "1250210852",
+    lat: 45.764,
+    lng: 4.78,
+    name: "Tassin-la-Demi-Lune",
+    nameAscii: "Tassin-la-Demi-Lune",
+    roundedLat: 46,
+    roundedLng: 5,
+  },
+  {
+    id: "1250000295",
+    lat: 45.7753,
+    lng: 4.7783,
+    name: "Écully",
+    nameAscii: "Ecully",
+    roundedLat: 46,
+    roundedLng: 5,
+  },
+  {
+    id: "1250853320",
+    lat: 45.8253,
+    lng: 4.9536,
+    name: "Miribel",
+    nameAscii: "Miribel",
+    roundedLat: 46,
+    roundedLng: 5,
+  },
+  {
+    id: "1250475669",
+    lat: 45.8064,
+    lng: 4.7536,
+    name: "Dardilly",
+    nameAscii: "Dardilly",
+    roundedLat: 46,
+    roundedLng: 5,
+  },
+];
+export const roundedPointAntipodeOfLyon: LatLng = { lat: -46, lng: -175 };

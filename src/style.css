@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Share:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+* {
+  font-family: Share, Menlo, Arial, sans-serif;
+}
+
+.universe-bg {
+  background-image: url("/starry_sky.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: repeat;
+  animation: backgroundPan 60s linear infinite;
+}
+@keyframes backgroundPan {
+  from {
+    background-position: 0 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+/* flying airplane animation */
+.airplane-wave {
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: flyWave 10s linear infinite;
+}
+@keyframes flyWave {
+  0% {
+    transform: translate(-18vw, calc(-50% + 6vh));
+  }
+  15% {
+    transform: translate(-12vw, -50%);
+  }
+  30% {
+    transform: translate(-6vw, calc(-50% + 3vh));
+  }
+  45% {
+    transform: translate(0vw, calc(-50% - 2vh));
+  }
+  60% {
+    transform: translate(6vw, calc(-50% - 1vh));
+  }
+  75% {
+    transform: translate(12vw, calc(-50% + 2vh));
+  }
+  90% {
+    transform: translate(18vw, calc(-50% - 3vh));
+    opacity: 1;
+  }
+  100% {
+    transform: translate(22vw, calc(-50% - 5vh));
+    opacity: 0.6;
+  }
+}
+
+/* leaflet popup position */
+.leaflet-popup {
+  bottom: 20px !important;
+}
