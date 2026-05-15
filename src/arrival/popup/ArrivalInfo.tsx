@@ -1,5 +1,6 @@
 import { OverlayTrigger, Stack, Tooltip } from "react-bootstrap";
 import type { SunsetLocation } from "../../types";
+import sunFill from "../../assets/sun_fill.png";
 interface IArrivalInfoProps {
   sunsetLocation: SunsetLocation;
   arrivalDateTime: Date;
@@ -31,7 +32,7 @@ export const ArrivalInfo: React.FC<IArrivalInfoProps> = ({
           hour12: false,
         })}
         <img
-          src="/sun_fill.png"
+          src={sunFill}
           alt="sunset"
           width={28}
           height={28}

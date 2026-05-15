@@ -7,6 +7,7 @@ import {
 import { useEffect, useState } from "react";
 import { HELICOPTER_SIZE } from "../common/HELICOPTER_SIZE";
 import { UniverseContainer } from "../universeContainer/UniverseContainer";
+import helicopter from "../assets/helicopter.png";
 
 export const Flying: React.FC = () => {
   const earthIcons = [
@@ -28,7 +29,7 @@ export const Flying: React.FC = () => {
         <div className="text-secondary ">{earthIcons[currentIndex]}</div>
         <img
           className="airplane-wave"
-          src="/helicopter.png"
+          src={helicopter}
           alt="Helicopter"
           width={HELICOPTER_SIZE}
           height={HELICOPTER_SIZE}

@@ -1,9 +1,10 @@
 import { Image, Stack } from "react-bootstrap";
+import sun from "../assets/sun.png";
 
 export const DepartureSign: React.FC = () => {
   return (
     <Stack direction="horizontal" gap={2} className="align-items-start">
-      <Image src="/sun.png" alt="Sunset" style={{ height: 92 }} />
+      <Image src={sun} alt="Sunset" style={{ height: 92 }} />
       <div
         className="h2 d-none d-md-block"
         style={{
