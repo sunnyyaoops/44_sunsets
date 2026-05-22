@@ -61,3 +61,8 @@
 .leaflet-popup {
   bottom: 20px !important;
 }
+
+/* split flap display alignment */
+.split-flap-display {
+  justify-content: start !important;
+}
