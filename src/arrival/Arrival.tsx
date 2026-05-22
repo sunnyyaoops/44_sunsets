@@ -30,7 +30,6 @@ export const Arrival: React.FC<IGetLocationInfo> = ({
           throw new Error(`Response status: ${response.status}`);
         }
         const data = await response.json();
-        console.log(data);
         setSunsetDetails(data.results);
       } catch (error) {
         console.error("Error:", error);
