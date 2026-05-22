@@ -45,7 +45,7 @@ export const ArrivalPopup: React.FC<IArrivalProps> = ({
             variant="dark"
             onClick={handleGoogleSearch}
             text="Search Location"
-            icon={<Google />}
+            startIcon={<Google />}
           />
         </Col>
         <Col>
@@ -53,7 +53,7 @@ export const ArrivalPopup: React.FC<IArrivalProps> = ({
             variant="light"
             onClick={() => navigate("/departure")}
             text="Fly Back"
-            icon={<HouseDoorFill />}
+            startIcon={<HouseDoorFill />}
           />
         </Col>
       </Row>
