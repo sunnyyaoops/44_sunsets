@@ -62,6 +62,8 @@ export const Arrival: React.FC<IGetLocationInfo> = ({
       minZoom={2.5}
       zoomDelta={0.5}
       zoomControl={false}
+      scrollWheelZoom="center"
+      doubleClickZoom="center"
     >
       <TileLayer
         attribution="Tiles &copy; Esri &mdash; Source: USGS, Esri, TANA, DeLorme, and NPS"
