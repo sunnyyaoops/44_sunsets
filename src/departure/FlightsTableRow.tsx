@@ -1,6 +1,6 @@
 import type { SunsetLocation } from "../types";
 import SplitFlap, { Presets, type SplitFlapProps } from "react-split-flap";
-import { TicketPerforatedFill } from "react-bootstrap-icons";
+import { ArrowRight, TicketPerforatedFill } from "react-bootstrap-icons";
 import { LightColorList } from "../common/COLORS";
 import { useLocation } from "wouter";
 import { handleClickForBoarding } from "./helpers/handleClickForBoarding";
@@ -74,6 +74,7 @@ export const FlightsTableRow: React.FC<IFlightsTableRowProps> = ({
           variant="dark"
           style={{
             color: fightColor,
+            borderColor: fightColor,
           }}
           onClick={() =>
             handleClickForBoarding({
@@ -84,7 +85,8 @@ export const FlightsTableRow: React.FC<IFlightsTableRowProps> = ({
               navigate,
             })
           }
-          icon={<TicketPerforatedFill width="24" height="24" />}
+          startIcon={<TicketPerforatedFill width="24" height="24" />}
+          endIcon={<ArrowRight width="16" height="16" />}
           text="BOARD"
         />
       </td>

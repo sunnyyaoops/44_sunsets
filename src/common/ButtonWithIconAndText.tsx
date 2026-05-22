@@ -1,21 +1,23 @@
 import { Button } from "react-bootstrap";
 import type { ButtonVariant } from "react-bootstrap/esm/types";
-interface IButtonWithIconAndText {
-  icon: React.ReactNode;
+interface IButtonWithIconAndTextProps {
   text: string;
   variant: ButtonVariant;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
+  startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
   ariaLabel?: string;
   style?: React.CSSProperties;
 }
-export const ButtonWithIconAndText: React.FC<IButtonWithIconAndText> = ({
-  icon,
+export const ButtonWithIconAndText: React.FC<IButtonWithIconAndTextProps> = ({
+  startIcon,
   text,
   variant,
   onClick,
   ariaLabel,
   style,
-}: IButtonWithIconAndText) => {
+  endIcon,
+}: IButtonWithIconAndTextProps) => {
   return (
     <Button
       aria-label={ariaLabel}
@@ -25,7 +27,9 @@ export const ButtonWithIconAndText: React.FC<IButtonWithIconAndText> = ({
       onClick={onClick}
       style={style}
     >
-      {icon} {text}
+      {startIcon && startIcon}
+      {text}
+      {endIcon && endIcon}
     </Button>
   );
 };

@@ -25,7 +25,7 @@ export const FlightsTable: React.FC = () => {
       className="table-responsive rounded-3"
       style={{ boxShadow: "0 8px 32px rgba(255, 255, 255, 0.3)" }}
     >
-      <Table hover variant="dark" className="mb-0">
+      <Table variant="dark" className="mb-0">
         <thead
           style={{
             position: "sticky",

@@ -6,10 +6,10 @@ export interface ISunsetDetails {
   dusk: string;
   utc_offset: number;
 }
-interface SunsetDetailsTable {
+interface ISunsetDetailsTableProps {
   sunsetDetails: ISunsetDetails | null;
 }
-export const SunsetDetailsTable: React.FC<SunsetDetailsTable> = ({
+export const SunsetDetailsTable: React.FC<ISunsetDetailsTableProps> = ({
   sunsetDetails,
 }) => {
   return (
