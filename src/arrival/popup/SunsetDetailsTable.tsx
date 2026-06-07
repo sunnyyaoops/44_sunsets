@@ -1,13 +1,8 @@
 import { Table } from "react-bootstrap";
 import { convertTo24Hour } from "../helpers/convertTo24Hour";
-export interface ISunsetDetails {
-  golden_hour: string;
-  sunset: string;
-  dusk: string;
-  utc_offset: number;
-}
-interface ISunsetDetailsTableProps {
-  sunsetDetails: ISunsetDetails | null;
+import type { SunsetDetails } from "../schemas/sunsetDetailsResponseSchema";
+export interface ISunsetDetailsTableProps {
+  sunsetDetails: SunsetDetails | undefined;
 }
 export const SunsetDetailsTable: React.FC<ISunsetDetailsTableProps> = ({
   sunsetDetails,

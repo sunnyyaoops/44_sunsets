@@ -1,14 +1,14 @@
 import { Col, Container, Row } from "react-bootstrap";
 import type { SunsetLocation } from "../../types";
 import { getLocalTimeByUtcOffset } from "../helpers/getLocalTimeByUtcOffset";
-import { SunsetDetailsTable, type ISunsetDetails } from "./SunsetDetailsTable";
+import { SunsetDetailsTable } from "./SunsetDetailsTable";
 import { Google, HouseDoorFill } from "react-bootstrap-icons";
 import { useLocation } from "wouter";
 import { ButtonWithIconAndText } from "../../common/ButtonWithIconAndText";
 import { ArrivalInfo } from "./ArrivalInfo";
-interface IArrivalProps {
+import type { ISunsetDetailsTableProps } from "./SunsetDetailsTable";
+interface IArrivalProps extends ISunsetDetailsTableProps {
   sunsetLocation: SunsetLocation;
-  sunsetDetails: ISunsetDetails | null;
 }
 export const ArrivalPopup: React.FC<IArrivalProps> = ({
   sunsetLocation,

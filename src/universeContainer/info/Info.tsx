@@ -1,7 +1,8 @@
 import { Button, OverlayTrigger, Popover, Stack } from "react-bootstrap";
 import { InfoCircle } from "react-bootstrap-icons";
-import { AttributionLink } from "./AttributionLink";
 import { InfoSection } from "./InfoSection";
+import { AttributionLink } from "./AttributionLink";
+
 interface IInfo {
   buttonStyle?: React.CSSProperties;
 }
@@ -14,19 +15,19 @@ export const Info: React.FC<IInfo> = ({ buttonStyle }: IInfo) => {
         <Popover id="credits-info" style={{ maxWidth: 360 }} className="p-2">
           <Popover.Body>
             <Stack gap={4}>
-              <InfoSection header="Made by">
+              <InfoSection header="❤️ Made by">
                 <AttributionLink
                   text="Sunny Yao"
                   href="https://medium.com/@sunnyyaoops"
                 />
               </InfoSection>
-              <InfoSection header="Inspired by">
+              <InfoSection header="💛 Inspired by">
                 <AttributionLink
                   text="The Little Prinice by Antoine de Saint-Exupéry"
                   href="https://sustainableplay.com/the-little-prince/"
                 />
               </InfoSection>
-              <InfoSection header="Powered by">
+              <InfoSection header="💙 Powered by">
                 <AttributionLink
                   text="Terminator data: Leaflet.Terminator"
                   href="https://www.npmjs.com/package/@joergdietrich/leaflet.terminator"
@@ -39,7 +40,14 @@ export const Info: React.FC<IInfo> = ({ buttonStyle }: IInfo) => {
                   href="https://sunrisesunset.io/api/"
                   text="Sunset detail data: SunriseSunset.io"
                 />
-
+                <AttributionLink
+                  href="https://api.windy.com/"
+                  text="Live webcam data: Windy.com"
+                />
+                <AttributionLink
+                  href="https://www.npmjs.com/package/react-split-flap"
+                  text="Split-flap display by chiakic"
+                />
                 <AttributionLink
                   href="https://unsplash.com/photos/a-black-sky-filled-with-lots-of-stars-v_YXpW9LBiM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
                   text="Photo by Kate Pierotti on Unsplash"
@@ -60,11 +68,8 @@ export const Info: React.FC<IInfo> = ({ buttonStyle }: IInfo) => {
     >
       <Button
         aria-label="Info"
-        className="position-absolute bottom-0 start-0 align-context-center p-3 border-0"
-        style={{
-          backgroundColor: "transparent",
-          ...buttonStyle,
-        }}
+        className="position-absolute bottom-0 start-0 border-0 bg-transparent p-1 m-2"
+        style={{ ...buttonStyle }}
       >
         <InfoCircle size={20} />
       </Button>

@@ -2,13 +2,15 @@ import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { ArrivalPopup } from "./popup/ArrivalPopup.tsx";
 import { useEffect, useState } from "react";
-import type { ISunsetDetails } from "./popup/SunsetDetailsTable.tsx";
 import { getLocationInfo } from "./helpers/getLocationInfo";
 import type { IGetLocationInfo } from "./helpers/getLocationInfo";
 import { Flying } from "./Flying";
 import { helicopterLeafletIcon } from "./helicopterLeafletIcon";
 import { Info } from "../universeContainer/info/Info.tsx";
-
+import { useQueries } from "@tanstack/react-query";
+import { fetchWebcams } from "./helpers/fetchWebcams.ts";
+import { fetchSunsetDetails } from "./helpers/fetchSunsetDetails.ts";
+import { SunsetView } from "./sunsetView/SunsetView.tsx";
 export const Arrival: React.FC<IGetLocationInfo> = ({
   cityId,
   sunsetOcean,
@@ -17,35 +19,31 @@ export const Arrival: React.FC<IGetLocationInfo> = ({
   const { lat, lng } = sunsetLocation;
   const locationCoordinate: [number, number] = [lat, lng];
   const [flying, setFlying] = useState<boolean>(true);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [sunsetDetails, setSunsetDetails] = useState<ISunsetDetails | null>(
-    null,
-  );
-  useEffect(() => {
-    const url = `https://api.sunrisesunset.io/json?lat=${lat}&lng=${lng}`;
-    const fetchSunset = async () => {
-      try {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error(`Response status: ${response.status}`);
-        }
-        const data = await response.json();
-        setSunsetDetails(data.results);
-      } catch (error) {
-        console.error("Error:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchSunset();
-  }, [lat, lng]);
+  const [
+    { data: sunsetDetails, isPending: isSunsetDetailsPending },
+    { data: webcamsData, isPending: isWebcamsPending },
+  ] = useQueries({
+    queries: [
+      {
+        queryKey: ["sunsetDetails", lat, lng],
+        queryFn: () => fetchSunsetDetails({ lat, lng }),
+      },
+      {
+        queryKey: ["webcams", lat, lng],
+        queryFn: () => fetchWebcams({ lat, lng }),
+        refetchInterval: 300000,
+        refetchIntervalInBackground: true,
+      },
+    ],
+  });
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setFlying(false);
     }, 4000);
     return () => clearTimeout(timer);
   }, []);
-  return flying || loading ? (
+  return flying || isSunsetDetailsPending || isWebcamsPending ? (
     <Flying />
   ) : (
     <MapContainer
@@ -85,6 +83,7 @@ export const Arrival: React.FC<IGetLocationInfo> = ({
         </Popup>
       </Marker>
       <Info buttonStyle={{ zIndex: 1001, color: "gray" }} />
+      <SunsetView webcams={webcamsData || []} />
     </MapContainer>
   );
 };

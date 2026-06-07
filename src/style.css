@@ -66,3 +66,14 @@
 .split-flap-display {
   justify-content: start !important;
 }
+
+/* carousel indicators */
+.carousel .carousel-indicators button {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: lightgrey;
+}
+.carousel .carousel-indicators .active {
+  background-color: white;
+}
