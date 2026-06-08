@@ -4,10 +4,11 @@ import { Departure } from "./departure/Departure";
 import { Route, Router, Switch } from "wouter";
 import { Intro } from "./Intro";
 import { RedirectionPage } from "./RedirectionPage";
+import { useHashLocation } from "wouter/use-hash-location";
 
 const App: React.FC = () => {
   return (
-    <Router base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+    <Router hook={useHashLocation}>
       <Switch>
         <Route path="/" component={Intro} />
         <Route path="/departure" component={Departure} />
