@@ -18,6 +18,7 @@ A web application inspired by _The Little Prince_ that lets you check where suns
 3. **Board Flight**: Choose a destination to begin your journey
 4. **Fly**: Fly in the helicopter to your destination
 5. **Arrive**: View the map centered on your destination with location info and sunset details
+6. **Watch Sunset**: View live webcam photos of the sunset at your destination
 
 ## How It Works
 
@@ -101,3 +102,4 @@ The basic idea is to find where the evening terminator (the line separating day 
 ## API Used
 
 - **sunrisesunset.io** - Provides sunset data based on latitude and longitude
+- **Windy.com** - Provides webcam data based on latitude and longitude
