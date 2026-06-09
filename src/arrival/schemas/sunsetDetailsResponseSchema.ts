@@ -1,9 +1,9 @@
 import { z } from "zod";
 
 const sunsetDetailsSchema = z.object({
-  golden_hour: z.string(),
-  sunset: z.string(),
-  dusk: z.string(),
+  golden_hour: z.string().nullable(),
+  sunset: z.string().nullable(),
+  dusk: z.string().nullable(),
   utc_offset: z.number(),
 });
 export const sunsetDetailsResponseSchema = z.object({

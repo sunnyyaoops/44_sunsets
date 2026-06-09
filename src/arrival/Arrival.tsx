@@ -36,7 +36,6 @@ export const Arrival: React.FC<IGetLocationInfo> = ({
       },
     ],
   });
-
   useEffect(() => {
     const timer = setTimeout(() => {
       setFlying(false);
