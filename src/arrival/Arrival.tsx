@@ -31,8 +31,6 @@ export const Arrival: React.FC<IGetLocationInfo> = ({
       {
         queryKey: ["webcams", lat, lng],
         queryFn: () => fetchWebcams({ lat, lng }),
-        refetchInterval: 300000,
-        refetchIntervalInBackground: true,
       },
     ],
   });
