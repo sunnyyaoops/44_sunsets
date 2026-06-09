@@ -2,6 +2,8 @@
 
 A web application inspired by _The Little Prince_ that lets you check where sunset is happening around the world. Fulfill the dream of watching 44 sunsets within one day - experience the magic of chasing sunsets across different time zones and locations, just as the little prince could by moving his chair a few steps.
 
+Check out the live website [here](https://sunnyyaoops.github.io/44_sunsets/)!
+
 ## Inspiration
 
 > “One day,” you said to me, “I saw the sunset forty-four times!”
