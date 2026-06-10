@@ -43,8 +43,12 @@ export const FlightsTable: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {sunsetLocations.map((location) => (
-            <FlightsTableRow key={location.id} location={location} />
+          {sunsetLocations.map((location, index) => (
+            <FlightsTableRow
+              key={location.id}
+              location={location}
+              index={index}
+            />
           ))}
         </tbody>
       </Table>

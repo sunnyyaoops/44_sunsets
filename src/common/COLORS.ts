@@ -7,8 +7,8 @@ export const COLORS = {
 export const LIGHT_COLORS = {
   LAVENDER: "#C7C7E9",
   MOCHA: "#C6D7A1",
-  DESERT: "#FAD5A5",
   CYAN: "#BBF0F0",
+  DESERT: "#FAD5A5",
   PEACH: "#ECC0CF",
   SKY: "#B9D9EB",
 };

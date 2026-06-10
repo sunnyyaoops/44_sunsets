@@ -11,6 +11,7 @@ import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { ButtonWithIconAndText } from "../common/ButtonWithIconAndText";
 interface IFlightsTableRowProps {
   location: SunsetLocation;
+  index: number;
 }
 const customStyle: Partial<SplitFlapProps> = {
   hinge: false,
@@ -20,10 +21,11 @@ const customStyle: Partial<SplitFlapProps> = {
 };
 export const FlightsTableRow: React.FC<IFlightsTableRowProps> = ({
   location,
+  index,
 }) => {
   const [, navigate] = useLocation();
   const { id, name, lng, lat, nameAscii } = location;
-  const fightColor = LightColorList[name.length % LightColorList.length];
+  const fightColor = LightColorList[index % LightColorList.length];
   const boardingTime = new Date().toLocaleTimeString([], TIME_FORMAT);
   return (
     <tr id={id}>
