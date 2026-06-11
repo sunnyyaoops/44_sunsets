@@ -2,9 +2,14 @@ import { Tooltip, OverlayTrigger, Carousel, Image } from "react-bootstrap";
 import { LeafletControlContainer } from "./LeafletControlContainer";
 import type { Webcam } from "../schemas/webcamResponseSchema";
 import sunsetIllustration from "../../assets/sunset_illustration_from_The_Little_Prince.png";
+import type { CSSProperties } from "react";
 interface ISunsetViewProps {
   webcams: Webcam[];
 }
+const imageStyle: CSSProperties = {
+  width: 340,
+  aspectRatio: "1/1",
+};
 export const SunsetView: React.FC<ISunsetViewProps> = ({ webcams }) => {
   const hasWebcams = webcams.length > 0;
   return (
@@ -48,11 +53,7 @@ export const SunsetView: React.FC<ISunsetViewProps> = ({ webcams }) => {
                     roundedCircle
                     src={webcam.images.current.preview}
                     alt={webcam.title}
-                    style={{
-                      width: 280,
-                      aspectRatio: "1/1",
-                      objectFit: "cover",
-                    }}
+                    style={{ ...imageStyle, objectFit: "cover" }}
                   />
                   <Carousel.Caption className="start-50 translate-middle-x w-75 px-1">
                     <p
@@ -71,11 +72,7 @@ export const SunsetView: React.FC<ISunsetViewProps> = ({ webcams }) => {
               alt="Watching sunset with the little prince"
               roundedCircle
               className="bg-white"
-              style={{
-                width: 280,
-                aspectRatio: "1/1",
-                objectFit: "contain",
-              }}
+              style={{ ...imageStyle, objectFit: "contain" }}
             />
           )}
         </div>
