@@ -1,9 +1,9 @@
 import type { LatLng } from "../../types";
-interface IRoundEveningPoints {
+interface IRoundPointLatitudesProps {
   points: LatLng[];
 }
 
-export const roundEveningPoints = ({ points }: IRoundEveningPoints) =>
+export const roundPointLatitudes = ({ points }: IRoundPointLatitudesProps) =>
   points.map((point) => ({
     lat: Math.round(point.lat * 2) / 2,
     lng: point.lng,
