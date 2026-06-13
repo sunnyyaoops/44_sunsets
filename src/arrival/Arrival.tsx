@@ -45,7 +45,7 @@ export const Arrival: React.FC<IGetLocationInfo> = ({
   ) : (
     <MapContainer
       center={locationCoordinate}
-      zoom={5}
+      zoom={6}
       style={{ height: "100vh", width: "100vw" }}
       maxBounds={[
         [-90, lng - 180],
