@@ -11,7 +11,7 @@ export const getSunsetCities = ({
   roundedEveningPoints.forEach((point) => {
     // Find the city group that matches this point
     const cities = groupedCitiesMap.get(`${point.lat}, ${point.lng}`);
-    if (!!cities?.length && cities?.length > 0) {
+    if (cities && cities?.length > 0) {
       sunsetCities.push(...cities);
     }
   });
