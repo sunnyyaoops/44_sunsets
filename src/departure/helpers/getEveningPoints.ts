@@ -1,5 +1,5 @@
 import type { LatLng } from "../../types";
-import { roundEveningPoints } from "./roundEveningPoints";
+import { roundPointLatitudes } from "./roundPointLatitudes";
 interface IGetEveningPoints {
   allPoints: LatLng[];
   currentDayTime: Date;
@@ -12,6 +12,10 @@ export const getEveningPoints = ({
   const utcHours =
     currentDayTime.getUTCHours() + currentDayTime.getUTCMinutes() / 60;
   const eveningPoints = allPoints.filter((point) => {
+    // Exclude polar points, as they are only for drawing the map polygon and don't represent actual sunset locations
+    if (Math.abs(point.lat) === 90) {
+      return false;
+    }
     // Calculate the approximate local solar time at this specific longitude
     // Every 15 degrees of longitude represents 1 hour of time difference
     let localHours = utcHours + point.lng / 15;
@@ -21,6 +25,6 @@ export const getEveningPoints = ({
     return localHours > 12 && localHours < 24;
   });
   // The lng is already rounded to 0.5 degree increments, so round the lat same way to make it easier to find the city matches
-  const roundedEveningPoints = roundEveningPoints({ points: eveningPoints });
+  const roundedEveningPoints = roundPointLatitudes({ points: eveningPoints });
   return roundedEveningPoints;
 };
