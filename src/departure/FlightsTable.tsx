@@ -6,19 +6,14 @@ import { getSunsetLocations } from "./helpers/getSunsetLocations";
 import terminator from "@joergdietrich/leaflet.terminator";
 
 export const FlightsTable: React.FC = () => {
-  const currentTime = new Date();
+  const currentDayTime = new Date();
   const terminatorInstance = terminator({
     resolution: 2,
     longitudeRange: 360,
-    time: currentTime,
+    time: currentDayTime,
   });
-  const allPoints: LatLng[] = terminatorInstance
-    .getLatLngs()
-    .flat(Infinity) as LatLng[];
-  const roundedEveningPoints = getEveningPoints({
-    allPoints,
-    currentDayTime: currentTime,
-  });
+  const allPoints: LatLng[] = terminatorInstance.getLatLngs().flat(2);
+  const roundedEveningPoints = getEveningPoints({ allPoints, currentDayTime });
   const sunsetLocations = getSunsetLocations({ roundedEveningPoints });
   return (
     <div
