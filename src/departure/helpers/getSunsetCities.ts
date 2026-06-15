@@ -6,12 +6,11 @@ export interface IGetSunsetCities {
 export const getSunsetCities = ({
   roundedEveningPoints,
 }: IGetSunsetCities): City[] => {
-  const groupedCitiesMap = new Map(Object.entries(groupedCities));
   const sunsetCities: City[] = [];
   roundedEveningPoints.forEach((point) => {
     // Find the city group that matches this point
-    const cities = groupedCitiesMap.get(`${point.lat}, ${point.lng}`);
-    if (cities && cities?.length > 0) {
+    const cities = groupedCities[`${point.lat}, ${point.lng}`] || [];
+    if (cities.length > 0) {
       sunsetCities.push(...cities);
     }
   });
