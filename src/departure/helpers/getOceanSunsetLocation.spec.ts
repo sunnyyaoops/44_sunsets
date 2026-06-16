@@ -11,30 +11,40 @@ describe("getOceanSunsetLocation", () => {
     const result = getOceanSunsetLocation({
       eveningTerminatorPoints: [nullIslandPoint],
     });
-    expect(result.id).toBe(OCEAN_SUNSET_LOCATION_ID);
-    expect(result.name).toBe("Atlantic Ocean");
-    expect(result.nameAscii).toBe("Atlantic Ocean");
-    expect(result.lat).toBe(nullIslandPoint.lat);
-    expect(result.lng).toBe(nullIslandPoint.lng);
+    expect(result?.id).toBe(OCEAN_SUNSET_LOCATION_ID);
+    expect(result?.name).toBe("Atlantic Ocean");
+    expect(result?.nameAscii).toBe("Atlantic Ocean");
+    expect(result?.lat).toBe(nullIslandPoint.lat);
+    expect(result?.lng).toBe(nullIslandPoint.lng);
   });
   it("should return Indian Ocean", () => {
     const result = getOceanSunsetLocation({
       eveningTerminatorPoints: [roundedIndianOceanPoint],
     });
-    expect(result.id).toBe(OCEAN_SUNSET_LOCATION_ID);
-    expect(result.name).toBe("Indian Ocean");
-    expect(result.nameAscii).toBe("Indian Ocean");
-    expect(result.lat).toBe(roundedIndianOceanPoint.lat);
-    expect(result.lng).toBe(roundedIndianOceanPoint.lng);
+    expect(result?.id).toBe(OCEAN_SUNSET_LOCATION_ID);
+    expect(result?.name).toBe("Indian Ocean");
+    expect(result?.nameAscii).toBe("Indian Ocean");
+    expect(result?.lat).toBe(roundedIndianOceanPoint.lat);
+    expect(result?.lng).toBe(roundedIndianOceanPoint.lng);
   });
   it("should return Pacific Ocean", () => {
     const result = getOceanSunsetLocation({
       eveningTerminatorPoints: [roundedPacificOceanPoint],
     });
-    expect(result.id).toBe(OCEAN_SUNSET_LOCATION_ID);
-    expect(result.name).toBe("Pacific Ocean");
-    expect(result.nameAscii).toBe("Pacific Ocean");
-    expect(result.lat).toBe(roundedPacificOceanPoint.lat);
-    expect(result.lng).toBe(roundedPacificOceanPoint.lng);
+    expect(result?.id).toBe(OCEAN_SUNSET_LOCATION_ID);
+    expect(result?.name).toBe("Pacific Ocean");
+    expect(result?.nameAscii).toBe("Pacific Ocean");
+    expect(result?.lat).toBe(roundedPacificOceanPoint.lat);
+    expect(result?.lng).toBe(roundedPacificOceanPoint.lng);
+  });
+  it("should return null when no ocean is found (lng: -80~-45, 9~43, 98~105)", () => {
+    const result = getOceanSunsetLocation({
+      eveningTerminatorPoints: [
+        { lat: 0, lng: -60 },
+        { lat: 0, lng: 30 },
+        { lat: 0, lng: 100 },
+      ],
+    });
+    expect(result).toBeNull();
   });
 });

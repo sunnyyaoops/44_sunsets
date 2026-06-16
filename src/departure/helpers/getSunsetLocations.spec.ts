@@ -21,4 +21,10 @@ describe("getSunsetLocations", () => {
     expect(result).toHaveLength(1);
     expect(result[0].name).toBe("Pacific Ocean");
   });
+  it("should return empty array, when no sunset cities or ocean locations are found", () => {
+    const result = getSunsetLocations({
+      roundedEveningPoints: [{ lat: 0, lng: -60 }],
+    });
+    expect(result).toEqual([]);
+  });
 });

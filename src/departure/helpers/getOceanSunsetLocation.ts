@@ -5,12 +5,10 @@ interface IGetOceanSunsetLocationProps {
 export const OCEAN_SUNSET_LOCATION_ID = "ocean";
 export const getOceanSunsetLocation = ({
   eveningTerminatorPoints,
-}: IGetOceanSunsetLocationProps): SunsetLocation => {
+}: IGetOceanSunsetLocationProps): SunsetLocation | null => {
   // Find the point closest to the equator
-  const pointNearEquator = eveningTerminatorPoints.find(
-    (point) =>
-      Math.abs(point.lat) ===
-      Math.min(...eveningTerminatorPoints.map((p) => Math.abs(p.lat))),
+  const pointNearEquator = eveningTerminatorPoints.reduce((closest, current) =>
+    Math.abs(current.lat) < Math.abs(closest.lat) ? current : closest,
   );
   const checkOcean = (longitude: number) => {
     if (longitude >= -45 && longitude <= 9) {
@@ -25,7 +23,7 @@ export const getOceanSunsetLocation = ({
   };
   const oceanName = checkOcean(pointNearEquator?.lng || 0);
   if (!oceanName) {
-    throw new Error("No ocean found");
+    return null;
   }
   return {
     id: OCEAN_SUNSET_LOCATION_ID,

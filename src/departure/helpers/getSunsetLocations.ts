@@ -13,6 +13,6 @@ export const getSunsetLocations = ({
     const oceanSunsetLocation = getOceanSunsetLocation({
       eveningTerminatorPoints: roundedEveningPoints,
     });
-    return [oceanSunsetLocation];
+    return oceanSunsetLocation ? [oceanSunsetLocation] : [];
   }
 };
