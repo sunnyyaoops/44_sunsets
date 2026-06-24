@@ -7,15 +7,15 @@ const cities = await csv({
   },
   checkType: true,
 }).fromFile(csvFilePath);
-const citiesMapObj = {};
+const cityGroupObj = {};
 cities.forEach((city) => {
   const key = `${city.roundedLat}, ${city.roundedLng}`;
-  if (!citiesMapObj[key]) {
-    citiesMapObj[key] = [city];
+  if (!cityGroupObj[key]) {
+    cityGroupObj[key] = [city];
   } else {
-    citiesMapObj[key].push(city);
+    cityGroupObj[key].push(city);
   }
 });
-const fileContent = `import type { GroupedCities } from "../types"; export const groupedCities: GroupedCities = ${JSON.stringify(citiesMapObj)};`;
+const fileContent = `import type { GroupedCities } from "../types"; export const groupedCities: GroupedCities = ${JSON.stringify(cityGroupObj)};`;
 fs.writeFileSync("src/data/groupedCities.ts", fileContent);
 console.log("✅ Done!");
