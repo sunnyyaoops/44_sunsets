@@ -18,7 +18,7 @@ export const Info: React.FC<IInfo> = ({ buttonStyle }: IInfo) => {
               <InfoSection header="❤️ Made by">
                 <AttributionLink
                   text="Sunny Yao"
-                  href="https://medium.com/@sunnyyaoops"
+                  href="https://medium.com/@sunnyyaoops/44-sunsets-a8deb6e11a7e"
                 />
               </InfoSection>
               <InfoSection header="💛 Inspired by">
